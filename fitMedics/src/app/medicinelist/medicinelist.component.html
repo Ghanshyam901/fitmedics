@@ -1,0 +1,129 @@
+<app-doctornav></app-doctornav>
+
+<div class="container containerd">
+<!-- 
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Medicine_Name</th>
+            <th>Stock_available</th>
+            <th>billing_amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of Medicines">
+            <td>{{ m.id }}</td>
+            <td>{{ m.medicine_name}}</td>
+            <td>{{ m.stock_available}}</td>
+            <td>{{ m.billing_amount}}</td>
+          <td>       
+        <button (click)="delMed(m.id)" class="btn btn-danger btn-md" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
+        <button (click)="editMedicine(m)" class="btn btn-primary btn-md" style="padding: 5px; margin: 2px; width: 5vw;">Update</button>
+        <button  class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 10vw;">Book an Appointment</button>
+    </td> 
+    </tr>
+  </tbody>
+</table>
+</div> -->
+
+
+<div class="container containerd mt-1">
+  <h3 class="mt-4">Search Medicine by Medicine Name</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Medicine_Name" [(ngModel)]="medicine_name">
+      </div>
+      <button class="btn btn-primary" (click)="getMedicineByName(medicine_name)">Search</button>
+    </div>
+  </div>  
+  <br><br>
+
+
+<div class="row  medicines">
+  <div class="col-sm-3" *ngFor="let m of Medicines; let i = index">
+    <div class="card">
+      <div class="card-body">
+        <a>{{"Mid : "+m.id}}</a>
+        <h5 class="card-title">{{"Name : "+m.medicine_name}}</h5>
+        <h6>Amount is : {{m.billing_amount | currency : "INR"}}</h6>
+        <h6>{{"Stock : " +m.stock_available}}</h6>
+      </div>
+      <button *ngIf="is_admin === true" (click)="delMed(m.id)" style="padding: 5px; margin: 2px; width: 10vw;" class="btn btn-primary medicinebtn">Delete</button>
+      <button *ngIf="is_admin === true" (click)="editMedicine(m)" style="padding: 5px; margin: 2px; width: 10vw;" class="btn btn-success medicinebtn">Update</button>
+      <button class="btn btn-primary medicinebtn" style="padding: 5px; margin: 2px; width: 10vw;" (click)="addToCart(m)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+  <div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Button</a>
+    </div>
+  </div> -->
+
+
+
+<button *ngIf="is_admin === true" (click)="addMedicine()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw; margin-left: 43vw;">Add New Medicine</button><br><br>
+<form *ngIf="showForm" (submit)="addNewMedicine()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 
+  <h2 style="text-align: center;">Add New Medicine</h2>
+  <label>Medicine Name:</label>
+  <input [(ngModel)]="newMedicine.medicine_name" name="firstName" type="text" class="form-control"><br>
+  <label>Stock_available:</label>
+  <input [(ngModel)]="newMedicine.stock_available" name="exp_Years" type="text" class="form-control"><br>
+  <label>Billing_amount :</label>
+  <input [(ngModel)]="newMedicine.billing_amount" name="fees" type="text" class="form-control"><br>
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Add Medicine</button>
+  <button type="button" class="btn btn-danger" (click)="showForm = false" style="padding: 8px; margin-left: 5px;">Cancel</button>
+</form>
+
+
+ 
+  
+
+
+
+
+
+
+<!-- updating students form -->
+<form *ngIf="selectedMedicine" (submit)="updateMedicine()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;">
+<h2 style="text-align: center;">Update Medicine</h2>
+<label>Medicine_Name:</label>
+<input [(ngModel)]="selectedMedicine.medicine_name" name="first_name" type="text" class="form-control"><br>
+<label>Stock_available</label>
+<input [(ngModel)]="selectedMedicine.stock_available" name="last_name" type="text" class="form-control"><br>
+<label>Billing_amount:</label>
+<input [(ngModel)]="selectedMedicine.billing_amount" name="age" type="number" class="form-control"><br>
+<button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Update Trainer</button>
+<button type="button" class="btn btn-secondary btn-md" style="padding: 8px; margin-left: 10px;" (click)="cancelUpdate()">Cancel</button>
+</form>
+
+<!--Adding form-->
+
+
+
+<!--<div class="container">
+    <h1 class="mt-4">Search Trainers by Speciality</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter speciality" [(ngModel)]="speciality">
+        </div>
+        <button class="btn btn-primary" (click)="searchTrainersBySpeciality(speciality)">Search</button>
+      </div>
+    </div>
+  -->
+
+  </div>
+  </div>
+  
+  
+
+  <app-footer></app-footer>

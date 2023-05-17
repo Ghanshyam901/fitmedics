@@ -1,0 +1,68 @@
+
+<div class="ms-2 container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card mt-3">
+          <h5 class="card-header bg-secondary text-white">BMI Calculator</h5>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Enter your information</h6>
+            <div>
+              <div>
+                <label class="fw-bold">Name</label>
+                <input class="form-control" type="text" [(ngModel)]="name">
+              </div>
+  
+              <div class="mt-2">
+                <label class="fw-bold">Weight (kg)</label>
+                <input class="form-control" type="number" [(ngModel)]="weight">
+              </div>
+  
+              <div class="mt-2">
+                <label class="fw-bold">Height (m)</label>
+                <input class="form-control" type="number" [(ngModel)]="height">
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button class="btn btn-secondary" (click)="calcBMI()">
+                Calculate BMI
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-lg-6 text-center">
+        <h3 style="font-family: Arial, sans-serif;">BMI-CHART</h3>
+      
+        <img class="img-fluid" src="assets/bmi.jpg">
+      </div>
+  
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <div class="card">
+          <h5 class="card-header bg-secondarytext-white">BMI Calculator Output</h5>
+          <div class="card-body">
+            <div>
+              <div>
+                <label class="fw-bold">Name:</label>
+                <br>
+                <span class="fw-bold">{{ name }}</span>
+                <div [ngClass]="{
+                  'bg-blue': bmi < 18,
+                  'bg-green': bmi >= 19 && bmi <= 24,
+                  'bg-yellow': bmi >= 25 && bmi <= 29,
+                  'bg-red': bmi > 29
+                }" class="rounded p-3 mt-3 text-center">
+                  <h4 *ngIf="bmi">BMI: {{ bmi }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <app-footer></app-footer>

@@ -1,0 +1,82 @@
+<app-trainernav></app-trainernav>
+<!-- 
+ <div> 
+  <p>First Name: {{ firstName }}</p>
+  <p>Last Name: {{ lastName }}</p>
+  <p>Email: {{ email }}</p>
+  <p>Contact Number: {{ contactNumber }}</p>
+  <p>Blood Group: {{ bloodGroup }}</p>
+  <p>Weight: {{ weight }}</p>
+  <p>Height: {{ height }}</p>
+  <p>Password: {{ password }}</p> 
+  
+
+</div>  -->
+
+<!-- <p *ngIf="is_admin === true"></p> -->
+
+<div class="row div1 mt-10 profile">
+
+    <div class="formControldiv col-sm-6">
+
+        <div class="card">
+            <div class="card-body">
+              <div class="profilecard">
+                <h5 class="card-title">My profile</h5>
+              <p class="card-text">{{"Name : "+ firstName+" "+lastName}}</p>
+            
+              <p class="card-text">Email: {{email}}</p>
+              <p class="card-text">Contact Number: {{contactNumber}}</p>
+              <p class="card-text">Blood Group: {{bloodGroup}}</p>
+              <p class="card-text">Weight :{{weight}} Kg. </p>
+              <p class="card-text">Height: {{height}} foot.</p>
+              </div>
+              
+             
+              <button *ngIf="is_admin === true" class="btn btn-primary">fitMedics Admin</button>
+            </div>
+          </div>
+          
+
+    </div>
+
+
+
+
+    <div class="formControldiv col-sm-6">
+
+        <h1>my appoinments</h1>
+    </div>
+
+</div>
+
+
+
+  
+
+<!-- <div class="formControldiv col-sm-6">
+
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">User Profile</h5>
+          <p class="card-text">Name: {{ firstName +" " +lastName}}</p>
+        
+          <p class="card-text">Email: {{ email }}</p>
+          <p class="card-text">Contact Number: {{ contactNumber }}</p>
+          <p class="card-text">Blood Group: {{ bloodGroup }}</p>
+          <p class="card-text">Weight: {{ weight }}</p>
+          <p class="card-text">Height: {{ height }}</p>
+         
+          <button *ngIf="is_admin === true" class="btn btn-primary">Admin Button</button>
+        </div>
+      </div>
+      
+
+</div> -->
+<br>
+<br>
+<app-footer></app-footer>
+
+
+
+

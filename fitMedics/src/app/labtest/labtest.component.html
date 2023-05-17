@@ -1,0 +1,89 @@
+<app-doctornav></app-doctornav>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<div class="container containerd mt-1">
+  <div class="container">
+    <h3 class="mt-4">Search Test by TestName</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Test_Name" [(ngModel)]="test_name">
+        </div>
+        <button class="btn btn-primary" (click)="getLabTestByName(test_name)">Search</button>
+      </div>
+    </div>
+    <br>
+  
+
+
+  <h1 class="mt-4">Test Information</h1>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let t of labtests">
+      <div class="card mb-4">
+        <div class="image-container">
+          <img [src]="getImageUrl(t.test_name)" alt="Test Image" class="card-img-top Test-image">
+        </div>
+        <div class="card-header">
+          <h5 class="card-title"><strong>Test Name: </strong>{{ t.test_name }}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+              <strong>Test Type: </strong>{{ t.test_type}} <br>
+            </p>
+        <div class="card-body">
+          <p class="card-text">
+            <strong>Amount: </strong>{{ t.test_amount | currency : "INR" }} <br>
+          </p>
+          <p class="card-text" align="left">
+            <button *ngIf="is_admin === true" (click)="delTest(t.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
+            <button *ngIf="is_admin === true" (click)="editTest(t)" class="btn btn-primary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
+            <button type="submit" (click)="paying()"class="btn btn-success btn-md"  style="padding: 8px;">Book Test</button>
+          </p>      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="display: flex; justify-content: center;">
+    <button *ngIf="is_admin === true" (click)="addTest()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw;">Add New Test</button>
+</div>
+  
+<!--Adding form-->
+
+<form *ngIf="showForm" (submit)="addNewTest()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 
+  <h2 style="text-align: center;">Add New Test</h2>
+  <label>Test Name :</label>
+  <input [(ngModel)]="newTest.test_name" name="test_name" type="text" class="form-control"><br>
+  <label>Test Type :</label>
+  <input [(ngModel)]="newTest.test_type" name="test_type"  type="text" class="form-control"><br>
+  <label>Amount :</label>
+  <input [(ngModel)]="newTest.test_amount" name="test_amount" type="text" class="form-control"><br>
+
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Add Test</button>
+  <button type="button" class="btn btn-danger" (click)="showForm = false" style="padding: 8px; margin-left: 5px;">Cancel</button>
+</form>
+
+<!--Update form-->
+
+<form *ngIf="selectedTest" (submit)="updateTest()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 
+    <h2 style="text-align: center;">Update Test</h2>
+    <label>Test Name :</label>
+    <input [(ngModel)]="selectedTest.test_name" name="test_name" type="text" class="form-control"><br>
+    <label>Test Type :</label>
+    <input [(ngModel)]="selectedTest.test_type" name="test_type"  type="text" class="form-control"><br>
+    <label>Amount :</label>
+    <input [(ngModel)]="selectedTest.test_amount" name="test_amount" type="text" class="form-control"><br>
+  
+    <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Upadate Test</button>
+    <button type="button" class="btn btn-danger" (click)="showForm = false" style="padding: 8px; margin-left: 5px;">Cancel</button>
+  </form>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+
+  <app-footer></app-footer>

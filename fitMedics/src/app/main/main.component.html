@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">fitMedics</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        ></button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="bmicalc"
+                >bmi calculator
+               
+              </a>
+            </li>
+          </ul>
+
+          <form class="d-flex">
+            <!-- <a class="reg" routerLink="bmi">Bmi Calculator</a> -->
+            <a class="reg" routerLink="register">Register</a>
+          </form>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="row div1 container maindiv">
+      <div class="formControldiv col-sm-6">
+        <div class="home">
+         
+        </div>
+      </div>
+
+      <div class="col-sm-6 div2">
+       
+        <div class="btn-wrapper">
+          <div class="intro">
+            <h4>We are fitMedics</h4>
+            <span>FitMedics is a game-changer in the world of health and fitness. Our 
+              innovative web app seamlessly blends the expertise of 
+              medical  with cutting-edge fitness technology 
+              to help you achieve your health goals </span>
+          </div>
+          
+          <h3>I AM LOOKING FOR</h3>
+          <button
+            class="btn btn-primary btn-lg custom-btn"
+            (click)="logRole('Doctor')"
+            routerLink="login"
+          >
+            Doctor
+          </button>
+          <button
+            class="btn btn-primary btn-lg custom-btn"
+            (click)="logRole('Trainer')"
+            routerLink="login"
+          >
+            Trainer
+          </button>
+        </div>
+        
+      </div>
+    </div>
+    
+
+    <!-- <div *ngFor="let prop of userData | keyvalue">
+        {{ prop.key }}: {{ prop.value }}
+      </div> -->
+  </body>
+</html>
+<app-footer></app-footer>

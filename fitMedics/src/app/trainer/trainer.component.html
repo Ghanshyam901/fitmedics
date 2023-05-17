@@ -1,0 +1,168 @@
+
+<app-trainernav></app-trainernav>
+
+
+<!-- <app-navbar></app-navbar><br><br> -->
+<div class="container mt-5 paddingtrainer">
+
+  <h3 class="mt-4">Search Trainer by Speciality</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter speciality" [(ngModel)]="speciality">
+      </div>
+      <button class="btn btn-primary" (click)="searchTrainersBySpeciality(speciality)">Search</button>
+    </div>
+  </div>
+  <br><br>
+  
+
+
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Speciality</th>
+                <th>Year Of Experience</th>
+                <th>Fees</th>
+                <th *ngIf="is_admin === true">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of trainer">
+                <td>{{ t.id }}</td>
+                <td>{{ t.firstName }}</td>
+                <td>{{ t.lastName }}</td>
+                <td>{{ t.age }}</td>
+                <td>{{ t.email }}</td>
+                <td>{{ t.speciality }}</td>
+                <td>{{ t.exp_Years }}</td>
+                <td>{{ t.fees | currency:'INR' }}</td>
+                <td>
+                  
+                  <button *ngIf="is_admin === true"  class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 10vw;">Book an Appointment</button>
+                  <button *ngIf="is_admin === true" (click)="delTrainer(t.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
+                  <button *ngIf="is_admin === true" (click)="editTrainer(t)" class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
+              
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<button *ngIf="is_admin === true" (click)="addTrainer()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw; margin-left: 43vw;">Add New Trainer</button><br><br>
+
+
+<form  *ngIf="showForm" (submit)="addNewTrainer()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 
+  <h2 style="text-align: center;">Add New Trainer</h2>
+  <label>First Name:</label>
+  <input [(ngModel)]="newTrainer.firstName" name="firstName" type="text" class="form-control"><br>
+  <label>Last Name:</label>
+  <input [(ngModel)]="newTrainer.lastName" name="lastName" type="text" class="form-control"><br>
+  <label>Age :</label>
+  <input [(ngModel)]="newTrainer.age" name="age" type="text" class="form-control"><br>
+  <label>Email :</label>
+  <input [(ngModel)]="newTrainer.email" name="email" type="text" class="form-control"><br>
+  <label>Speciality :</label>
+  <select [(ngModel)]="newTrainer.speciality" name="speciality" class="form-control">
+    <option value="">Select Speciality</option>
+    <option value="Yoga">Yoga</option>
+    <option value="Pilates">Pilates</option>
+    <option value="CrossFit">CrossFit</option>
+    <option value="Bodybuilding">Bodybuilding</option>
+  </select><br>
+  <label>Experience Year :</label>
+  <input [(ngModel)]="newTrainer.exp_Years" name="exp_Years" type="text" class="form-control"><br>
+  <label>Fees :</label>
+  <input [(ngModel)]="newTrainer.fees" name="fees" type="text" class="form-control"><br>
+
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Add Trainer</button>
+  <button type="button" class="btn btn-danger" (click)="showForm = false" style="padding: 8px; margin-left: 5px;">Cancel</button>
+</form>
+
+
+
+<form *ngIf="selectedTrainer" (submit)="updateTrainer()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;">
+  <h2 style="text-align: center;">Update Trainer</h2>
+  <label>First Name:</label>
+  <input [(ngModel)]="selectedTrainer.firstName" name="firstName" type="text" class="form-control"><br>
+  <label>Last Name:</label>
+  <input [(ngModel)]="selectedTrainer.lastName" name="lastName" type="text" class="form-control"><br>
+  <label>Age :</label>
+  <input [(ngModel)]="selectedTrainer.age" name="age" type="text" class="form-control"><br>
+  <label>Email :</label>
+  <input [(ngModel)]="selectedTrainer.email" name="email" type="text" class="form-control"><br>
+  <label>Speciality :</label>
+  <select [(ngModel)]="selectedTrainer.speciality" name="speciality" class="form-control">
+    <option value="">Select Speciality</option>
+    <option value="Yoga">Yoga</option>
+    <option value="Pilates">Pilates</option>
+    <option value="CrossFit">CrossFit</option>
+    <option value="Bodybuilding">Bodybuilding</option>
+  </select><br>
+  <label>Experience Year :</label>
+  <input [(ngModel)]="selectedTrainer.exp_Years" name="exp_Years" type="text" class="form-control"><br>
+  <label>Fees :</label>
+  <input [(ngModel)]="selectedTrainer.fees" name="fees" type="text" class="form-control"><br>
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Update Trainer</button>
+  <button type="button" class="btn btn-secondary btn-md" style="padding: 8px; margin-left: 10px;" (click)="cancelUpdate()">Cancel</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+<!-- <p>trainer works!</p> -->
+
+  <!-- <div *ngFor="let prop of userData | keyvalue">
+        {{ prop.value }}
+ </div>  -->
+
+
+ <!-- <br>
+ <br>
+ <div *ngFor="let user of userData | keyvalue">
+   <div *ngIf="user.key === 'is_admin' && user.value === 'true'">
+     You are  an admin
+   </div>
+   <div *ngIf="user.key === 'firstName'">{{ user.value }}</div>
+   <button *ngIf="user.key === 'is_admin' && user.value === 'true'">Button</button>
+ </div>
+ 
+
+
+
+<h1 routerLink="">home</h1> -->
+
+<!-- <nav > {{firstName}} <a routerLink="profile">my profile</a>  </nav> -->
+
+
+<!-- <div> -->
+  <!-- <p>First Name: {{ firstName }}</p>
+  <p>Last Name: {{ lastName }}</p>
+  <p>Email: {{ email }}</p>
+  <p>Contact Number: {{ contactNumber }}</p>
+  <p>Blood Group: {{ bloodGroup }}</p>
+  <p>Weight: {{ weight }}</p>
+  <p>Height: {{ height }}</p>
+  <p>Password: {{ password }}</p> -->
+  
+  <!-- <button *ngIf="is_admin === true">Admin Button</button> -->
+<!-- </div> -->
+
+
+<!-- <h2>Welcome to the Home Page!</h2>
+    <button (click)="logout()" routerLink="">Logout</button>
+  -->
+
+  <app-footer></app-footer>

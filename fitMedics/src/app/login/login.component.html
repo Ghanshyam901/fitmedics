@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a routerLink="">fitMedics</a>
+</nav>
+
+<div class="row div1">
+  
+  <div class="formControldiv col-sm-6">
+    <!-- <p class="quote">“The body achieves what the mind believes.”</p> -->
+  
+    <form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm)" novalidate>
+      <h4><a routerLink="">FitMedics</a> Login</h4>
+
+      <div
+        *ngIf="loginForm.controls['email']?.errors?.['required'] && loginForm.controls['email']?.touched"
+      >
+        Please enter email
+      </div>
+      <div
+        *ngIf="loginForm.controls['email']?.errors?.['email'] && loginForm.controls['email']?.touched"
+      >
+        Please enter a valid email
+      </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        required
+        email
+        [(ngModel)]="email" type="email" id="email"
+        pattern=".+@globex\.com" size="30" required 
+      />
+      <br /><br />
+
+      <div
+        *ngIf="loginForm.controls['password']?.errors?.['required'] && loginForm.controls['password']?.touched"
+      >
+        Please enter password
+      </div>
+      <div
+        *ngIf="loginForm.controls['password']?.errors?.['minlength'] && loginForm.controls['password']?.touched"
+      >
+        Please enter a password with at least 4 characters
+      </div>
+      <div
+        *ngIf="loginForm.controls['password']?.errors?.['maxlength'] && loginForm.controls['password']?.touched"
+      >
+        Please enter a password with at most 12 characters
+      </div>
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        required
+        minlength="4"
+        maxlength="12"
+        [(ngModel)]="password"
+      />
+      <br /><br />
+
+      <input type="submit" value="Login" [disabled]="!loginForm.valid" /><br>
+      <!-- <a class="account" routerLink="register">Create an account</a> -->
+    </form>
+  </div>
+
+  <div class="col-sm-6 div2">
+    <div>
+     
+      <h2>Why fitMedics !</h2>
+      <p>
+        FitMedics is a game-changer in the world of health and fitness. Our innovative web app seamlessly blends the expertise of medical professionals with cutting-edge fitness technology to help you achieve your health goals like never before. With FitMedics, you'll have access to personalized workout plans designed by top trainers, as well as nutritional guidance tailored to your unique needs. But what really sets FitMedics apart is the added layer of medical expertise - our team of doctors are on-hand to provide tailored health recommendations and guidance, ensuring that your fitness journey is safe, effective, and optimized for your overall wellbeing. Say goodbye to generic workouts and cookie-cutter diet plans, and hello to a personalized, evidence-based approach to health and fitness with FitMedics.
+      </p>
+    </div>
+    
+  </div>
+</div>
+
+<app-footer></app-footer>
+

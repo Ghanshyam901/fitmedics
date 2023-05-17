@@ -1,0 +1,22 @@
+nav {
+    padding: 1%;
+}
+
+.card{
+    background-color:  #f3eeee; 
+    /* text-align: center;  */
+    padding: 12%;
+}
+.card-body{
+    /* margin-top: 10%; */
+    /* background-color: aqua; */
+}
+.profilecard{
+    background-color: aliceblue;
+    padding: 8%;
+}
+.profilecard h5{
+    color:  #007bff;
+    font-size: 2rem;
+    margin-bottom:5%;
+}

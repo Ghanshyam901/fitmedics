@@ -1,0 +1,95 @@
+<!-- <app-navbar></app-navbar> -->
+
+
+<app-trainernav></app-trainernav>
+
+<div class="container mt-5 paddingtrainer">
+
+  <h3 class="mt-4">Search Diet by Diet Types</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Diet Types" [(ngModel)]="diet_types">
+      </div>
+      <br>
+      <button class="btn btn-primary" (click)="getDietByType(diet_types)">Search</button>
+    </div>
+  </div>
+  <br><br>
+
+  <h1 class="mt-4">Diet Information</h1>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let diet of diets">
+      <div class="card mb-4">
+        <div class="image-container">
+          <img [src]="getImageUrl(diet.diet_types)" alt="Diet Image" class="card-img-top diet-image">
+        </div>
+        <div class="card-header">
+          <h5 class="card-title">{{ diet.diet_types }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <strong>Type : </strong>{{ diet.diet_products}} <br>
+          </p>
+          <p class="card-text" align="left">
+            <button *ngIf="is_admin === true" (click)="delDiet(diet.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
+            <button *ngIf="is_admin === true" (click)="editDiet(diet)" class="btn btn-primary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
+          </p>      
+<p class="card-text">
+  For further information regarding the dietary program, please click on the "Learn More" button.
+</p>
+          <p class="card-text" align="right">
+            <a [href]="getLearnMoreUrl(diet.diet_types)" class="btn btn-secondary btn-sm" target="_blank">Learn More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<button *ngIf="is_admin === true" (click)="addDiet()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw; margin-left: 43vw;">Add New diet</button><br><br>
+
+
+<form *ngIf="showForm" (submit)="addNewDiet()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 
+  <h2 style="text-align: center;">Add New Diet</h2>
+  <label>Diet Produxt :</label>
+  <input [(ngModel)]="newDiet.diet_products" name="diet_products" type="text" class="form-control"><br>
+  <label>Diet type :</label>
+  <select [(ngModel)]="newDiet.diet_types" name="diet_types"  class="form-control">
+    <option value="">Select Diet types</option>
+    <option value="Paleo">Paleo</option>
+    <option value="Vegan">Vegan</option>
+    <option value="Low Carb">Low Carb</option>
+    <option value="Gluten-Free">Gluten-Free</option>
+  </select><br>
+  <label>Price :</label>
+  <input [(ngModel)]="newDiet.price" name="price" type="text" class="form-control"><br>
+
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Add Diet</button>
+  <button type="button" class="btn btn-danger" (click)="showForm = false" style="padding: 8px; margin-left: 5px;">Cancel</button>
+</form>
+
+
+
+<form *ngIf="selectedDiet" (submit)="updateDiet()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;">
+  <h2 style="text-align: center;">Update Diet</h2>
+  <label>Diet Produxt :</label>
+  <input [(ngModel)]="selectedDiet.diet_products" name="diet_products" type="text" class="form-control"><br>
+  <label>Diet type :</label>
+  <select [(ngModel)]="selectedDiet.diet_types" name="diet_types"  class="form-control">
+    <option value="">Select Diet types</option>
+    <option value="Paleo">Paleo</option>
+    <option value="Vegan">Vegan</option>
+    <option value="Low Carb">Low Carb</option>
+    <option value="Gluten-Free">Gluten-Free</option>
+  </select><br>
+  <label>Price :</label>
+  <input [(ngModel)]="selectedDiet.price" name="price" type="text" class="form-control"><br>
+
+  <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">update Diet</button>
+  <button type="button" class="btn btn-secondary btn-md" style="padding: 8px; margin-left: 10px;" (click)="cancelUpdate()">Cancel</button>
+</form> 
+
+<app-footer></app-footer>

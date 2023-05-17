@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FitMedics - Trainer Home Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<app-doctornav></app-doctornav>
+	  
+	  <div class="jumbotron container mt-3 containerd">
+		<div class="doctorpic" style="background-image: url('assets/doctor/Try.jpg'); background-size: cover;">
+		  <!-- Content goes here -->
+		  <h1 style="color: rgb(234, 231, 231);">Welcome to FitMedics!</h1>
+		  <p style="color: rgb(229, 220, 220);">Our professional trainers provide comprehensive solutions to meet your healthcare needs.</p>
+            <a routerLink ="doctor" class="btn btn-secondary btn-lg" routerLink="doctor">View Doctors</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Lab Tests</h2>
+                <p>Our Lab Test is good for overall health and wellness.</p>
+                <a routerLink ="labtest" class="btn btn-secondary">View Tests</a>
+            </div>
+            <div class="col-md-4">
+                <h2>Resources</h2>
+                <p>Access a variety of resources, including articles, videos, and case studies, to enhance your understanding of healthcare and stay up to date on the latest trends and best practices.</p>
+                <a href="#" class="btn btn-secondary">View Resources</a>
+            </div>
+            <div class="col-md-4">
+                <h2>About Us</h2>
+                <p>Learn more about our organization, our mission, and the team behind FitMedics. We are committed to providing top-notch healthcare solutions to our clients and improving overall health outcomes.</p>
+                <a routerLink ="aboutus" class="btn btn-secondary">About Us</a>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+    <br>
+    <br>
+
+
+    <app-footer></app-footer>

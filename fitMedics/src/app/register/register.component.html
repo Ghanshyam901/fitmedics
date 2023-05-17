@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <a routerLink="">fitMedics</a>
+</nav>
+
+
+
+
+<!-- <ngb-toast-container></ngb-toast-container> -->
+
+<section class="vh-90 gradient-custom">
+    <div class="container py-5 h-70 divcontroller" >
+      <div class="row justify-content-center align-items-center h-30">
+        <div class="col-12 col-lg-9 col-m-7 ">
+          <div class="card shadow-2-strong card-registration register" style="border-radius: 15px;">
+            <div class="card-body p-2 p-md-5 register ">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-3">Registration Form <a class="atag" routerLink="">fitMedics</a></h3>
+              <form #regForm="ngForm" (ngSubmit)="submitReg(regForm.value)" >
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" #firstName="ngModel" name="firstName" placeholder="Enter first name" class="form-control form-control-lg" ngModel required />
+                      <!-- <label class="form-label" for="firstName">First Name</label> -->
+                    </div>
+
+              
+
+                      <div class="form-outline">
+                        <input type="text"#contact_number="ngModel" name="contact_number"    placeholder="Enter contact number" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="contact_number">contact number</label> -->
+                      </div>
+
+                      <div class="form-outline">
+                        <input type="text" #weight="ngModel" name="weight"  placeholder="Enter weight" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="weight">weight</label> -->
+                      </div>
+
+                      <div class="form-outline">
+                        <input type="text"  #blood_group="ngModel" name="blood_group"  placeholder="Enter blood group" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="blood_group">Blood group</label> -->
+                      </div>
+  
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+
+                       <div class="form-outline">
+                        <input type="text" #lastName="ngModel" name="lastName"  placeholder="Enter last name" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="lastName">Last Name</label> -->
+                      </div> 
+                      
+                      <div class="form-outline">
+                      
+                        <input type="email" id="email"
+                        pattern=".+@globex\.com" size="30" required    #email="ngModel" name="email"   placeholder="Enter email id" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="email">Email id</label> -->
+                      </div>
+  
+                    <div class="form-outline">
+                      <input type="text" #height="ngModel" name="height"   placeholder="Enter Height"ngModel required class="form-control form-control-lg" />
+                      <!-- <label class="form-label" for="height">height</label> -->
+                    </div>
+
+                  
+
+                     
+
+                      <div class="form-outline">
+                        <input type="text" #password="ngModel" name="password"  placeholder="Enter your password" ngModel required class="form-control form-control-lg" />
+                        <!-- <label class="form-label" for="password">Enter password</label> -->
+                      </div>  
+                  </div>
+                </div>
+  
+               
+                <div class="mt-0 pt-2">
+                  <button *ngIf="!isDuplicateEmail" class="btn btn-primary btn-lg" type="submit" value="Submit"> Register</button>
+                  <a class="account" routerLink="">I already have an account</a>
+                </div>
+
+  
+              </form>
+            </div>
+          </div>
+        </div>
+
+      
+
+
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>

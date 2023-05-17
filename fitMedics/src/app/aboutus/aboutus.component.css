@@ -1,0 +1,27 @@
+.about-us {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .about-us h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .about-us .btn-secondary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .about-us .btn-secondary:hover {
+    background-color: #0069d9;
+  }
+  
+  .containerd{
+    margin-top: 1%;
+  }

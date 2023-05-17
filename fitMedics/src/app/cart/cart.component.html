@@ -1,0 +1,33 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<app-doctornav></app-doctornav>
+<div class="container containerd mt-2">
+    
+<h3 align="center"><button (click)="showCartItems()"> Show Cart Items </button></h3>
+<h2 style="text-align: center">Selected Items {{cartItems.length}}</h2>
+<div>
+<table class="table table-striped table-bordered"border=2 align="center">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Medicine_Name</th>
+        <th>Stock_available</th>
+        <th>billing_amount</th>
+        <th>Buy now</th>
+      </tr>
+    </thead>
+<tr *ngFor="let item of cartItems">
+    <td>{{item.id}}</td>
+    <td>{{ item.medicine_name}}</td>
+    <td>{{ item.stock_available}}</td>
+    <td>{{ item.billing_amount | currency : "INR"}}</td>
+    <td><button type="submit" (click)="paying()"  class="btn btn-primary" >Buy now</button></td>
+</tr>  
+<button (click)="clearcart()" class="btn btn-danger btn-md" style="padding: 5px; margin: 2px; width: 5vw;" >Clear Cart</button>
+
+<!-- <button type="submit" (click)="paying()"class="btn btn-success btn-md" (click)="showform=false" style="padding: 8px;">Make Payment</button> -->
+</table>
+</div>
+</div>
+
+
+<app-footer></app-footer>

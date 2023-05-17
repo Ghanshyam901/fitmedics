@@ -1,0 +1,91 @@
+body {
+  overflow: hidden;
+}
+
+form {
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #fbf8f8;
+  border-radius: 20px;
+  box-shadow: 9px 6px 5px rgba(8, 27, 103, 0.3);
+}
+
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color:black;
+  background-color: #f3eeee;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 9px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.formControldiv {
+  margin-top: 7%;
+  text-align: center;
+}
+
+:host {
+  background-color: grey;
+}
+
+.div2 {
+  background-color: #f3eeee;
+
+  padding: 96px;
+}
+
+
+.div1 {
+  background-color:#f3eeee;
+  padding: 18px;
+  overflow:hidden;
+}
+
+form h4 {
+  color: #000000;
+  margin-bottom: 15px;
+}
+p{
+  color: rgb(0, 0, 0);
+}
+.quote{
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.account{
+  font-size: 1.5rem;
+  color: black;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
+
+}
+a{
+  text-decoration: none;
+}
+
+h2{
+  color: #007bff;
+ }

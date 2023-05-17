@@ -1,0 +1,73 @@
+.gradient-custom {
+    /* fallback for old browsers */
+   /* und: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1)) */
+   /* height: 500px; */
+   /* background-image: url('/assets/background3.jpg') ; */
+   background-color: #f3eeee;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: relative;
+   overflow: hidden;
+   /* padding: 20.5%; */
+}
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1.0rem;
+    line-height: 1.15;
+    padding-left: 0.75em;
+    padding-right: 1.6em;
+    
+    /* margin: 2%; */
+    }
+    .card-registration .select-arrow {
+    top: 10px;
+    }
+
+    input{
+      /* padding: 2%; */
+      background-color: #f3eeee;;
+      margin: 1.5%;
+    }
+    .navbar a {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        cursor: pointer;
+
+      }
+      a{
+       text-decoration: none;
+        /* font-size: 1rem; */
+      }
+
+
+      .register{
+        /* margin-top: %; */
+        background-color: #fbf8f8;
+        border-radius: 7px;
+               
+       
+      }
+     
+
+      .form-label, .form-control {
+        font-size: 1.2rem;
+      }
+      .form-control {
+        width: 90%;
+      }
+     .account{
+        margin-left: 2%;
+        color: black;
+        font-size: 1.2rem;
+     }
+
+     label{
+        color: white;
+      
+     }
+     /* body{
+      overflow: hidden;
+     } */
+    
