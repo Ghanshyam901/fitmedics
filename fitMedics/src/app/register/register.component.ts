@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FitserviceService } from '../fitservice.service';
 import { user } from '../user';
 import { ToastrService } from 'ngx-toastr';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +13,11 @@ export class RegisterComponent implements OnInit {
 
   reg: any;
   isDuplicateEmail: boolean = false;
+  dublicateEmail :boolean=false;
 
   formData: user = new user("", "", "", "", "", "", "", "");
 
-  constructor(private fitservice: FitserviceService,private toastr : ToastrService) {
+  constructor(private fitservice: FitserviceService, private toast: NgToastService) {
     this.submitReg(this.formData);
   }
 
@@ -27,26 +29,35 @@ export class RegisterComponent implements OnInit {
     this.formData = formValue;
     console.log(this.formData);
   
-    this.fitservice.addUser(this.formData).subscribe(
-      () => {
+    this.fitservice.addUser(this.formData).subscribe((data:any) => {
         // Registration successful
+        
         this.isDuplicateEmail = false;
         this.ngOnInit();
-        this.toastr.success('Registration Successful!', 'Success');
+       
+        this.toast.success({detail:"SUCCESS",summary:'Regestration success',duration:5000});
       },
       (error) => {
         // Duplicate email error
-        if (error && error.error && error.error.message === 'Email already exists') {
+        if (error.error && error.error.message === 'Email already exists') {
+        
           this.isDuplicateEmail = true;
-          alert("Email already exists. Please use a different email.");
+          this.toast.error({detail:"ERROR",summary:'Duplicate email / email already exists',sticky:true});
+      
         }
+       
+        // this.toast.success({detail:"ERROR",summary:'Dublicate email / email already exist',sticky:true});
       }
+      
+      
+       
     );
+   
   }
   
 
   ngOnInit(): void {
-
+    
   }
 
 }

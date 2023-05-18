@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseServService } from '../exercise-serv.service';
+import { SharedService } from '../shared.service';
 
 
 
@@ -15,10 +16,26 @@ export class ExerciseComponent implements OnInit{
 selectedExercise: any;
 workout_types:any;
  
-  constructor(private exerciseService:ExerciseServService) {
+  
 
-   }
+   is_admin:any;
+userData: any;
+
+constructor(private exerciseService:ExerciseServService,private sharedService: SharedService) {
+
+}
+
+extractUserData(): void {
+  this.is_admin = this.userData.is_admin
+}
+
+
+
+
+
   ngOnInit(): void {
+    this.userData = this.sharedService['loggeduserdata'];
+    this.extractUserData();
     this.getExerciseInfo();
   }
 

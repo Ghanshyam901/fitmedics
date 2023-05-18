@@ -45,7 +45,7 @@
                 <td>{{ t.fees | currency:'INR' }}</td>
                 <td>
                   
-                  <button *ngIf="is_admin === true"  class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 10vw;">Book an Appointment</button>
+                  <button *ngIf="is_admin === false"  class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 10vw;">Book an Appointment</button>
                   <button *ngIf="is_admin === true" (click)="delTrainer(t.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
                   <button *ngIf="is_admin === true" (click)="editTrainer(t)" class="btn btn-secondary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
               

@@ -44,6 +44,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BmiComponent } from './bmi/bmi.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 
@@ -92,8 +93,9 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(), // Add this line
+    NgToastModule
 
-    ToastrModule.forRoot()
+
 
     
   ],

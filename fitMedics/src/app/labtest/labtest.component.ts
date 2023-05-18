@@ -131,7 +131,7 @@ options = {
   "key": "rzp_test_M47RbQNk904fv5", // Enter the Key ID generated from the Dashboard
   "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
   "currency": "INR",
-  "name": "Ainventory", //your business name
+  "name": "Fitmedics", //your business name
   "description": "Test Transaction",
   "image": "http://www.newdesignfile.com/postpic/2014/06/icon-air-airline-photos_63759.png",
   "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1

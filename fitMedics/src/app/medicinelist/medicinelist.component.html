@@ -53,7 +53,7 @@
       </div>
       <button *ngIf="is_admin === true" (click)="delMed(m.id)" style="padding: 5px; margin: 2px; width: 10vw;" class="btn btn-primary medicinebtn">Delete</button>
       <button *ngIf="is_admin === true" (click)="editMedicine(m)" style="padding: 5px; margin: 2px; width: 10vw;" class="btn btn-success medicinebtn">Update</button>
-      <button class="btn btn-primary medicinebtn" style="padding: 5px; margin: 2px; width: 10vw;" (click)="addToCart(m)">Add to Cart</button>
+      <button  *ngIf="is_admin === false" class="btn btn-primary medicinebtn" style="padding: 5px; margin: 2px; width:10vw;" (click)="addToCart(m)">Add to Cart</button>
     </div>
   </div>
 </div>
@@ -101,7 +101,7 @@
 <input [(ngModel)]="selectedMedicine.stock_available" name="last_name" type="text" class="form-control"><br>
 <label>Billing_amount:</label>
 <input [(ngModel)]="selectedMedicine.billing_amount" name="age" type="number" class="form-control"><br>
-<button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Update Trainer</button>
+<button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Update Medicine</button>
 <button type="button" class="btn btn-secondary btn-md" style="padding: 8px; margin-left: 10px;" (click)="cancelUpdate()">Cancel</button>
 </form>
 

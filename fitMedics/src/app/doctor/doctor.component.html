@@ -63,12 +63,12 @@
      <h6 class="card-title "> {{"Department : "+d.speciality}}</h6>
     <h6 class="card-title"> {{"Email : "+d.email}}</h6>
     <h6 class="card-title"> {{"Experience : "+d.exp_years +" years exp."}}</h6>
-    <h6 class="card-title"> "consultation fees : {{d.fees |currency : "INR"}}</h6>
+    <h6 class="card-title"> consultation fees : {{d.fees |currency : "INR"}}</h6>
     </div>
     <div class="col-sm-6" >
       <button *ngIf="is_admin === true" class="buttons" (click)="delDoctor(d.id)" class="btn btn-danger btn-md" style="padding: 5px; margin-top: 5px; margin-left: 5px; width: 5vw;">Delete</button>
       <button *ngIf="is_admin === true" class="buttons" (click)="editDoctor(d)" class="btn btn-primary btn-md" style="padding: 5px;  margin-top:5px; margin-left: 5px; width: 5vw;">Update</button>
-      <button class="buttons"  class="btn btn-secondary" style="padding: 5px;  margin-top: 5px; margin-left: 5px; width: 14vw;">Book an Appointment</button>
+      <button *ngIf="is_admin === false" class="buttons"  (click)="paying()" class="btn btn-secondary" style="padding: 5px;  margin-top: 5px; margin-left: 5px; width: 14vw;">Book an Appointment</button>
   
     </div>
     

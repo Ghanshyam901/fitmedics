@@ -26,8 +26,7 @@
         placeholder="Enter email"
         required
         email
-        [(ngModel)]="email" type="email" id="email"
-        pattern=".+@globex\.com" size="30" required 
+        [(ngModel)]="email" 
       />
       <br /><br />
 
@@ -57,7 +56,7 @@
       />
       <br /><br />
 
-      <input type="submit" value="Login" [disabled]="!loginForm.valid" /><br>
+      <input class="btnh" type="submit" value="Login" [disabled]="!loginForm.valid" /><br>
       <!-- <a class="account" routerLink="register">Create an account</a> -->
     </form>
   </div>
@@ -73,6 +72,9 @@
     
   </div>
 </div>
+<br>
+<br>
+<br>
 
 <app-footer></app-footer>
 

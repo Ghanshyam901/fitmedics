@@ -29,11 +29,12 @@
 
     <div class="contact-form">
       <h2>Send us a message</h2>
-      <form action="submit_form.php" method="POST">
+
+      <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
         <input type="text" name="name" placeholder="Your Name" required><br>
         <input type="email" name="email" placeholder="Your Email" required><br>
         <textarea name="message" placeholder="Your Message" rows="6" required></textarea><br>
-        <input type="submit" value="Send Message">
+        <input class="buttonc" type="submit" value="Send Message">
       </form>
     </div>
   </div>

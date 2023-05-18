@@ -27,8 +27,8 @@
           <h5 class="card-title" style="font-size: 1.2rem;">{{ e.workout_types }}</h5>
           <p class="card-text" style="font-size: 1rem;">Body Types: {{ e.body_types }}</p>
           <p class="card-text" align="left">
-            <button (click)="delExercise(e.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
-            <button (click)="editExercise(e)" class="btn btn-primary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
+            <button *ngIf="is_admin === true" (click)="delExercise(e.id)" class="btn btn-danger" style="padding: 5px; margin: 2px; width: 5vw;">Delete</button>
+            <button *ngIf="is_admin === true" (click)="editExercise(e)" class="btn btn-primary" style="padding: 5px; margin: 2px; width: 5vw;">Edit</button>
           </p>
         <p class="card-text">
           To explore more comprehensively about our exercise regimen, kindly delve into the "Learn More" option.
@@ -43,7 +43,7 @@
 </div>
 
 
-<button (click)="addExercise()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw; margin-left: 43vw;">Add New Exercise</button><br><br>
+<button   *ngIf="is_admin === true" (click)="addExercise()" class="btn btn-primary btn-md" style="padding: 8px; width: 10vw; margin-left: 43vw;">Add New Exercise</button><br><br>
 
 
 <form *ngIf="showForm" (submit)="addNewExercise()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;"> 

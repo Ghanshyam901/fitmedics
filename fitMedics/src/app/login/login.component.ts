@@ -3,6 +3,7 @@ import { FitserviceService } from '../fitservice.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { SharedService } from '../shared.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fitService: FitserviceService,
     private route: Router,
-    public sharedService: SharedService
+    public sharedService: SharedService,private toast: NgToastService
+    
   ) {}
 
   getAllUsers() {
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.isloggendin = true;
           this.sharedService.loggeduserdata = userWithoutPassword;
           localStorage.setItem('loggeduser', JSON.stringify(userWithoutPassword));
+          this.toast.success({detail:"SUCCESS",summary:'Login success Doctor',duration:5000});
           this.route.navigateByUrl('doctorhome');
           return;
         } else if (this.lookingFor == 'Trainer') {
@@ -54,14 +57,13 @@ export class LoginComponent implements OnInit {
           this.isloggendin = true;
           this.sharedService.loggeduserdata = userWithoutPassword;
           localStorage.setItem('loggeduser', JSON.stringify(userWithoutPassword));
-          alert('Login success');
+          this.toast.success({detail:"SUCCESS",summary:'Login success Trainer',duration:5000});
           this.route.navigateByUrl('trainerhome');
           return;
         }
       }
     }
-
-    alert('No user exists with the provided credentials.');
+    this.toast.warning({detail:"ERROR",summary:'Wrong credentials',sticky:true});
   }
 
   ngOnInit(): void {
